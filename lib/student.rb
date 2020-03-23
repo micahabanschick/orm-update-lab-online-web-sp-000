@@ -54,7 +54,7 @@ class Student
   
   def update
     sql = "SELECT * FROM students WHERE name = ?"
-    row = DB[:conn].execute(sql, self.name)[0]
+    row = DB[:conn].execute(sql, self.name)[0][0]
     self.id = row[0]
     self.name = row[1]
     self.grade = row[2]
