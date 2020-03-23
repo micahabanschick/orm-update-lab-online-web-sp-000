@@ -18,9 +18,9 @@ class Student
       CREATE TABLE IF NOT EXISTS students (
       id INTEGER PRIMARY KEY,
       name TEXT,
-      grade )
+      grade TEXT);
     SQL 
-    sdf
+    DB 
   end 
   
   def self.drop_table
