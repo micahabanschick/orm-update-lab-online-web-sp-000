@@ -39,7 +39,7 @@ class Student
     @id ||= DB[:conn].execute("SELECT id FROM students WHERE name = ?", self.name)[0][0]
   end 
   
-  def self.create(name: name, grade: name)
+  def self.create(name, grade)
     new_student = self.new(name, grade)
     new_student.save 
   end 
