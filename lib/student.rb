@@ -33,9 +33,7 @@ class Student
   end 
   
   def save 
-    sql = <<-SQL
-      INSERT INTO students (name, grade) VALUES (?, ?)
-    SQL
+    sql = "INSERT INTO students (name, grade) VALUES (?, ?)"
     DB[:conn].execute(sql, self.name, self.grade)
     @id ||= DB[:conn].execute("SELECT id FROM students WHERE name = ?", self.name)[0][0]
   end 
@@ -56,7 +54,7 @@ class Student
   def update
     binding.pry 
     sql = "SELECT * FROM students WHERE name = ?"
-    row = DB[:conn].execute(sql, self.name)[0][0]
+    row = DB[:conn].execute(sql, self.name)[0]
     self.id = row[0]
     self.name = row[1]
     self.grade = row[2]
