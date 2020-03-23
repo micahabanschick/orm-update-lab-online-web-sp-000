@@ -64,8 +64,8 @@ class Student
     #binding.pry 
     sql = "SELECT * FROM students WHERE id = ?"
     row = DB[:conn].execute(sql, self.id)[0]
-    self.name = row[0]
-    self.grade = row[1]
+    self.name = row[1]
+    self.grade = row[2]
   end 
   
 end
