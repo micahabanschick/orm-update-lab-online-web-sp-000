@@ -62,7 +62,7 @@ class Student
   
   def update
     #binding.pry 
-    sql = "SELECT name, grade FROM students WHERE id = ?"
+    sql = "SELECT * FROM students WHERE id = ?"
     row = DB[:conn].execute(sql, self.id)[0]
     self.name = row[0]
     self.grade = row[1]
