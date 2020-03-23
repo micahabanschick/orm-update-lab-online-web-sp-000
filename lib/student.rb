@@ -39,8 +39,7 @@ class Student
       DB[:conn].execute(sql, self.name, self.grade)
       @id ||= DB[:conn].execute("SELECT id FROM students WHERE name = ?", self.name)[0][0]
     else 
-      update = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
-      DB[:conn].execute(update, self.name, self.grade, self.id)
+      self.update 
     end 
   end 
   
@@ -64,10 +63,6 @@ class Student
     #binding.pry 
     update = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
     DB[:conn].execute(update, self.name, self.grade, self.id)
-    # sql = "SELECT * FROM students WHERE id = ?"
-    # row = DB[:conn].execute(sql, self.id)[0]
-    # self.name = row[1]
-    # self.grade = row[2]
   end 
   
 end
