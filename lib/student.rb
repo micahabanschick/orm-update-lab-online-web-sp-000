@@ -35,6 +35,7 @@ class Student
   
   def save 
     sql = "INSERT INTO students (name, grade) VALUES (?, ?)"
+    update = "UPDATE students SET "
     DB[:conn].execute(sql, self.name, self.grade)
     @id ||= DB[:conn].execute("SELECT id FROM students WHERE name = ?", self.name)[0][0]
   end 
