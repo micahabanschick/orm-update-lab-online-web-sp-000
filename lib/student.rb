@@ -46,6 +46,8 @@ class Student
   end 
   
   def self.new_from_db(row)
+    new_student_instance = self.new(row[0], row[1], row[2])
+    # @id ||= DB[:conn].execute("SELECT id FROM students WHERE name = ?", self.name)[0][0]
   end 
   
   def self.find_by_name(name)
